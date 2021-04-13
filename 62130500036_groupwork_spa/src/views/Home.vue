@@ -20,33 +20,33 @@ data(){
      informations: [
        {
          id: 1,
-         title: 'dsad' ,
-         explain: 'dsadsa',
-         src:'dsadassad'
+         title: 'บรีซเอกเซล คัลเลอร์ สูตรใหม่' ,
+         explain: 'สูตรเข้มขัน คงความสดใส ให้ผ้าสี',
+         src:'1.jpg'
         },
         {
           id:2,
-         title: 'dsad' ,
-         explain: 'dsadsa',
-         src:'dsadassad'
+         title: 'บรีซเอกเซล comfort' ,
+         explain: 'สูตรเข้มขัน หอมยาวนาน 4สัปดาห์',
+         src:'2.jpg'
         },
         {
           id:3,
-         title: 'dsad' ,
-         explain: 'dsadsa',
-         src:'dsadassad'
+         title: 'บรีซเอกเซล แอคทีฟเฟรช' ,
+         explain: 'สยบกลิ่นกระจายความหอม',
+         src:'3.jpg'
         },
         {
           id:4,
-         title: 'dsad' ,
-         explain: 'dsadsa',
-         src:'dsadassad'
+         title: 'บรีซเอกเซล โกลด์' ,
+         explain: 'สูตรเข้มข้น ฟองพอเหมาะ ถนอมเครื่องฝาหน้า',
+         src:'4.jpg'
         },
         {
           id:5,
          title: 'dsad' ,
          explain: 'dsadsa',
-         src:'dsadassad'
+         src:'5.jpg'
         }
      ],
      itemclicked: 0 ,
