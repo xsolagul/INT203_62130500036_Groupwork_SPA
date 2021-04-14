@@ -14,7 +14,7 @@
                 How was your fanciness?
               </h2>
 
-              <label class="label" for="name">Your Name</label>
+              <label class="label" for="name">Your Name:</label>
 
               <input
                 class="input"
@@ -72,6 +72,14 @@
               Submit
             </button>
           </form>
+          <base-card>
+          <ul v-for="user in userRatings" :key="user.id">
+            <li>
+              <span>{{ user.name }}</span> rating the learning experience
+              <span> {{ user.feedback }}</span>
+            </li>
+          </ul>
+        </base-card>
 </template>
 <script>
 import BaseCard from '../components/BaseCard.vue';
@@ -92,8 +100,9 @@ export default {
       userName: '',
       rating:null,
       nameNotReady: false,
-      ratingNotReady:false
-
+      ratingNotReady:false,
+      url:'http://localhost:3000/feedback',
+      userRatings:[]
 
     };
   },
@@ -101,7 +110,47 @@ export default {
     submitForm(){
       this.nameNotReady = this.userName === '' ? true : false
       this.ratingNotReady = this.rating === null ? true : false 
+      if(this.userName!== '' && this.rating !== null){
+        this.postUserRatings({name:this.userName,feedback:this.rating})
+      }
+      this.userName = ''
+      this.rating = null
+    },
+    async getUserRatings(){
+      try {
+        const res = await fetch(this.url)
+        const data = await res.json()
+        return data;
+        
+        
+      } catch (error) {
+          console.log(`get error ${error}`)
+      }
+    },
+    async postUserRatings(newUser){
+      try {
+        const res = await fetch(this.url,{
+          method: 'POST',
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify({
+            pictureid: this.obj.id,
+            name: newUser.name,
+            feedback: newUser.rating
+          }
+          )
+        })
+        const data = await res.json()
+        this.userRatings = [...this.userRatings, data]
+      } catch (error) {
+          console.log(`get error ${error}`)
+      }
     }
   },
+  async created(){
+    this.userRatings = await this.getUserRatings()
+    this.userRatings = this.userRatings.filter(
+      (x) => x.pictureid == this.obj.id
+    )
+  }
 };
 </script>
