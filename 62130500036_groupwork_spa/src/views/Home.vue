@@ -44,8 +44,8 @@ data(){
         },
         {
           id:5,
-         title: 'dsad' ,
-         explain: 'dsadsa',
+         title: 'บรีซเอกเซล' ,
+         explain: 'ขจัดคราบที่มองเห็นและมองไม่เห็น',
          src:'5.jpg'
         }
      ],
