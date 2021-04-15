@@ -101,7 +101,7 @@ export default {
       rating:null,
       nameNotReady: false,
       ratingNotReady:false,
-      url:'http://localhost:3000/feedback',
+      url:'http://localhost:3000/userfaciness',
       userRatings:[]
 
     };
@@ -111,10 +111,11 @@ export default {
       this.nameNotReady = this.userName === '' ? true : false
       this.ratingNotReady = this.rating === null ? true : false 
       if(this.userName!== '' && this.rating !== null){
-        this.postUserRatings({name:this.userName,feedback:this.rating})
+        this.postUserRatings({name:this.userName,rating:this.rating})
       }
       this.userName = ''
       this.rating = null
+      
     },
     async getUserRatings(){
       try {
