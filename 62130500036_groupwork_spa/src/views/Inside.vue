@@ -68,18 +68,72 @@
               </p>
             </base-card>
 
-            <button class="btn">
+            <button >
               Submit
             </button>
           </form>
+          
           <base-card>
           <ul v-for="user in userRatings" :key="user.id">
             <li>
               <span>{{ user.name }}</span> rating the learning experience
               <span> {{ user.feedback }}</span>
+              <button @click ="getEditData(user)" class="mx-4">edit</button>
             </li>
           </ul>
         </base-card>
+          <div v-if="isEdit">
+            <form @submit.prevent="submitEditForm">
+            <the-view>
+              <template v-slot:title>
+                {{ this.editUserName }}
+              </template>
+              <template v-slot:description>
+                 <h2 class="heading">My fanciness was </h2>
+
+              <div>
+                <input
+                  type="radio"
+                  name="rating"
+                  id="rating-poor"
+                  value="poor"
+                  v-model="editRating"
+                />
+                <label class="label" for="rating-poor">Poor</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  name="rating"
+                  id="rating-avg"
+                  value="average"
+                  v-model="editRating"
+                />
+                <label class="label" for="rating-avg">Average</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  name="rating"
+                  id="rating-great"
+                  value="great"
+                  v-model="editRating"
+                />
+                <label class="label" for="rating-great">Great</label>
+              </div>
+              <p v-if="editRatingNotReady" class="text-red-500">
+                Please choose your fanciness!
+              </p>
+
+            <button >
+              Submit
+            </button>
+              </template>
+            </the-view>
+            </form>
+          </div>
 </template>
 <script>
 import BaseCard from '../components/BaseCard.vue';
@@ -102,11 +156,28 @@ export default {
       nameNotReady: false,
       ratingNotReady:false,
       url:'http://localhost:3000/userfaciness',
-      userRatings:[]
-
+      userRatings:[],
+      editAt: '',
+      editUserName: '',
+      editRating: null,
+      isEdit: false,
+      editRatingNotReady:false
     };
   },
   methods: {
+    getEditData(EditInfo){
+      this.isEdit = true
+      this.editAt = EditInfo.id
+      this.editUserName = EditInfo.name
+      this.editRating = EditInfo.feedback
+    },
+    submitEditForm(){
+      this.editRatingNotReady = this.editRating === null ? true:false
+      if(!this.editRatingNotReady){
+        this.putUserRating()
+        this.isEdit = false
+      }
+    },
     submitForm(){
       this.nameNotReady = this.userName === '' ? true : false
       this.ratingNotReady = this.rating === null ? true : false 
@@ -144,6 +215,27 @@ export default {
         this.userRatings = [...this.userRatings, data]
       } catch (error) {
           console.log(`get error ${error}`)
+      }
+    },
+    async putUserRating(){
+      try {
+        const res = await fetch(`${this.url}/${this.editAt}`, {
+          method: 'PUT',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            pictureid:this.obj.id,
+            name: this.editUserName,
+            feedback: this.editRating
+          })
+        })
+        const data = await res.json()
+        this.userRatings = this.userRatings.map((x) => 
+        x.id === this.editAt
+        ?{...x,feedback: data.feedback}:x )
+      } catch (error) {
+        console.log(`post error! ${error}`)
       }
     }
   },

@@ -1,15 +1,15 @@
 {
   "userfaciness": [
     {
-      "pictureid": 1,
+      "pictureid": "1",
       "name": "korn",
-      "feedback": "great",
+      "feedback": "poor",
       "id": 1
     },
     {
-      "pictureid": 1,
+      "pictureid": "1",
       "name": "BB",
-      "feedback": "great",
+      "feedback": "average",
       "id": 2
     },
     {
@@ -23,6 +23,30 @@
       "name": "gao",
       "feedback": "poor",
       "id": 4
+    },
+    {
+      "pictureid": "3",
+      "name": "getter1",
+      "feedback": "poor",
+      "id": 5
+    },
+    {
+      "pictureid": "5",
+      "name": "บรีซ5",
+      "feedback": "great",
+      "id": 6
+    },
+    {
+      "pictureid": "4",
+      "name": "บรีซ4",
+      "feedback": "average",
+      "id": 7
+    },
+    {
+      "pictureid": "2",
+      "name": "comfort",
+      "feedback": "average",
+      "id": 8
     }
   ]
 }
