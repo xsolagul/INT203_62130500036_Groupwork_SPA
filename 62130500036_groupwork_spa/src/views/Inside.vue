@@ -79,6 +79,7 @@
               <span>{{ user.name }}</span> rating the learning experience
               <span> {{ user.feedback }}</span>
               <button @click ="getEditData(user)" class="mx-4">edit</button>
+              <button @click ="deleteUserRating(user.id)" class="mx-4">delete</button>
             </li>
           </ul>
         </base-card>
@@ -236,6 +237,18 @@ export default {
         ?{...x,feedback: data.feedback}:x )
       } catch (error) {
         console.log(`post error! ${error}`)
+      }
+    },
+    async deleteUserRating(id) {
+      try {
+        await fetch(`${this.url}/${id}`, {
+          method: 'DELETE'
+        })
+        this.userRatings = this.userRatings.filter(
+          (x) => x.id !== id
+        )
+      } catch (error) {
+        console.log(`delete error! ${error}`)
       }
     }
   },
