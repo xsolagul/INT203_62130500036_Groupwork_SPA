@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Inside from '../views/Inside.vue'
+import Status from '../views/Status.vue'
 const routes = [
   {
     path: '/',
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/inside/:id/:title/:explain/:src',
     component: Inside
+  },
+  {
+    path: '/Status',
+    component: Status
   }
 ]
 

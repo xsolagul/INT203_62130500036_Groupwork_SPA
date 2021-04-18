@@ -41,6 +41,80 @@
       "name": "comfort",
       "feedback": "average",
       "id": 8
+    },
+    {
+      "pictureid": "4",
+      "name": "getter3",
+      "feedback": "great",
+      "id": 9
+    },
+    {
+      "pictureid": "4",
+      "name": "getterdragon",
+      "feedback": "great",
+      "id": 10
+    },
+    {
+      "pictureid": "1",
+      "name": "getter ligar",
+      "feedback": "great",
+      "id": 11
+    },
+    {
+      "pictureid": "2",
+      "name": "getter poseidon",
+      "feedback": "great",
+      "id": 12
+    },
+    {
+      "pictureid": "5",
+      "name": "s",
+      "feedback": "great",
+      "id": 13
+    },
+    {
+      "pictureid": "5",
+      "name": "a",
+      "feedback": "great",
+      "id": 14
+    },
+    {
+      "pictureid": "1",
+      "name": "g",
+      "feedback": "poor",
+      "id": 15
+    }
+  ],
+  "item": [
+    {
+      "id": 1,
+      "title": "บรีซเอกเซล คัลเลอร์ สูตรใหม่",
+      "explain": "สูตรเข้มขัน คงความสดใส ให้ผ้าสี",
+      "src": "1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "บรีซเอกเซล comfort",
+      "explain": "สูตรเข้มขัน หอมยาวนาน 4สัปดาห์",
+      "src": "2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "บรีซเอกเซล แอคทีฟเฟรช",
+      "explain": "สยบกลิ่นกระจายความหอม",
+      "src": "3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "บรีซเอกเซล โกลด์",
+      "explain": "สูตรเข้มข้น ฟองพอเหมาะ ถนอมเครื่องฝาหน้า",
+      "src": "4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "บรีซเอกเซล",
+      "explain": "ขจัดคราบที่มองเห็นและมองไม่เห็น",
+      "src": "5.jpg"
     }
   ]
 }

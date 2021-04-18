@@ -137,12 +137,10 @@
           </div>
 </template>
 <script>
-import BaseCard from '../components/BaseCard.vue';
 import TheView from "../components/TheView.vue";
 export default {
   components: {
     TheView,
-    BaseCard,
   },
   data() {
     return {
