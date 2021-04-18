@@ -8,7 +8,7 @@
     <template v-slot:description>{{obj.explain}} </template>
   </the-view>
   
-   <form @submit.prevent="submitForm">
+   
             <base-card>
               <h2 class="heading">
                 How was your fanciness?
@@ -26,9 +26,8 @@
               <p v-if="nameNotReady" class="text-red-500">
                 Please enter your name!
               </p>
-            </base-card>
+            
 
-            <base-card>
               <h2 class="heading">My fanciness was </h2>
 
               <div>
@@ -66,20 +65,24 @@
               <p v-if="ratingNotReady" class="text-red-500">
                 Please choose your fanciness!
               </p>
+              <base-button @btn-click="submitForm" label="Submit"
+              txtcolor="text-white" bgcolor="bg-green-600">
+              
+            </base-button>
             </base-card>
 
-            <button >
-              Submit
-            </button>
-          </form>
+            
+         
           
           <base-card>
           <ul v-for="user in userRatings" :key="user.id">
             <li>
-              <span>{{ user.name }}</span> rating the learning experience
+              <span>{{ user.name }}</span> rating this item was
               <span> {{ user.feedback }}</span>
-              <button @click ="getEditData(user)" class="mx-4">edit</button>
-              <button @click ="deleteUserRating(user.id)" class="mx-4">delete</button>
+              <base-button @btn-click ="getEditData(user)" label="edit"
+              txtcolor="text-white" bgcolor="bg-green-600"></base-button>
+              <base-button @btn-click ="deleteUserRating(user.id)" label="delete"
+              txtcolor="text-white" bgcolor="bg-red-600"></base-button>
             </li>
           </ul>
         </base-card>
@@ -128,19 +131,21 @@
                 Please choose your fanciness!
               </p>
 
-            <button >
-              Submit
-            </button>
+            <base-button @btn-click="submitEditForm" label="Submit"
+            txtcolor="text-white" bgcolor="bg-green-600">
+            </base-button>
               </template>
             </the-view>
             </form>
           </div>
 </template>
 <script>
+import BaseButton from '../components/BaseButton.vue';
 import TheView from "../components/TheView.vue";
 export default {
   components: {
     TheView,
+    BaseButton,
   },
   data() {
     return {
